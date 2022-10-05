@@ -1,61 +1,91 @@
-export const getCurNorma = (state) => {
+const configs = [
+    ["NT 17/2021", "8"], 
+    ["IT 17/2021", "8"], 
+    ["NT 10/2020", "8"],
+    ["IT 17/2019", "8"],
+    ["IT 17/2016", "8"],
+    ["PORTARIA 06/2004", "8"],
+    ["NT 007/2011", "8"],
+    ["NT 07/2011", "8"],
+    ["NT 17/2021", "8"],
+    ["NT 17/2021", "8"],
+    ["NTCB 34/2020", "8"],
+    ["NT 17/2021", "8"],
+    ["IT 012/2020", "8"],
+    ["IT 08/2019", "8"],
+    ["NT 012/2015", "8"],
+    ["NPT 017/2021", "8"],
+    ["NO RULE", "8"],
+    ["IT 017/ 2019", "8"],
+    ["NT 2-11/2019", "8"],
+    ["IT 17/2018", "8"],
+    ["RT 014.2004", "8"],
+    ["NT 17/2021", "8"],
+    ["NT 17/2021", "8"],
+    ["IN 28/2021", "8"],
+    ["IT 017/ 2019", "8"],
+    ["IT 017/ 2019", "8"],
+    ["NT 012/2021", "8"]
+]
+
+export const getUFSpecificity = (state) => {
     let formatedState = state.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     formatedState = formatedState.toLowerCase()
     switch(formatedState) {
         case "acre":
-            return "NT 17/2021"
+            return configs[0]
         case "alagoas":
-            return "IT 17/2021"
+            return configs[1]
         case "amapa":
-            return "NT 10/2020"
+            return configs[2]
         case "amazonas":
-            return "IT 17/2019"
+            return configs[3]
         case "bahia":
-            return "IT 17/2016"
+            return configs[4]
         case "ceara":
-            return "PORTARIA 06/2004"
+            return configs[5]
         case "distrito federal":
-            return "NT 007/2011"
+            return configs[6]
         case "espirito santo":
-            return "NT 07/2011"
+            return configs[7]
         case "goias":
-            return "NT 17/2021"
+            return configs[8]
         case "maranhao":
-            return "NT 17/2021"
+            return configs[9]
         case "mato grosso":
-            return "NTCB 34/2020"
+            return configs[10]
         case "mato grosso do sul":
-            return "NT 17/2021"
+            return configs[11]
         case "minas gerais":
-            return "IT 012/2020"
+            return configs[12]
         case "para":
-            return "IT 08/2019"
+            return configs[13]
         case "paraiba":
-            return "NT 012/2015"
+            return configs[14]
         case "parana":
-            return "NPT 017/2021"
+            return configs[15]
         case "pernambuco":
-            return "NO RULE"
+            return configs[16]
         case "piaui":
-            return "IT 017/ 2019"
+            return configs[17]
         case "rio de janeiro":
-            return "NT 2-11/2019"
+            return configs[18]
         case "rio grande do norte":
-            return "IT 17/2018"
+            return configs[19]
         case "rio grande do sul":
-            return "RT 014.2004"
+            return configs[20]
         case "rondonia":
-            return "NT 17/2021"
+            return configs[21]
         case "roraima":
-            return "NT 17/2021"
+            return configs[22]
         case "santa catarina":
-            return "IN 28/2021"
+            return configs[23]
         case "sao paulo":
-            return "IT 017/ 2019"
+            return configs[24]
         case "sergipe":
-            return "IT 017/ 2019"
+            return configs[25]
         case "tocantins":
-            return "NT 012/2021"
+            return configs[26]
         default:
             return discoverNormaByInitials(formatedState)
     }
@@ -65,59 +95,59 @@ const discoverNormaByInitials = (stateInitials) => {
     let curState = stateInitials.toUpperCase()
     switch(curState) {
         case "AC": 
-            return "NT 17/2021"
+            return configs[0]
         case "AL": 
-            return "IT 17/2021"
+            return configs[1]
         case "AP": 
-            return "NT 10/2020"
+            return configs[2]
         case "AM": 
-            return "IT 17/2019"
+            return configs[3]
         case "BA": 
-            return "IT 17/2016"
+            return configs[4]
         case "CE": 
-            return "PORTARIA 06/2004"
+            return configs[5]
         case "DF": 
-            return "NT 007/2011"
+            return configs[6]
         case "ES": 
-            return "NT 07/2011"
+            return configs[7]
         case "GO": 
-            return "NT 17/2021"
+            return configs[8]
         case "MA":
-            return "NT 17/2021"
+            return configs[9]
         case "MT":
-            return "NTCB 34/2020"
+            return configs[10]
         case "MS": 
-            return "NT 17/2021"
+            return configs[11]
         case "MG": 
-            return "IT 012/2020"
+            return configs[12]
         case "PA": 
-            return "IT 08/2019"
+            return configs[13]
         case "PB": 
-            return "NT 012/2015"
+            return configs[14]
         case "PR":
-            return "NPT 017/2021"
+            return configs[15]
         case "PE": 
-            return "NO RULE"
+            return configs[16]
         case "PI": 
-            return "IT 017/ 2019"
+            return configs[17]
         case "RJ": 
-            return "NT 2-11/2019"
+            return configs[18]
         case "RN": 
-            return "IT 17/2018"
+            return configs[19]
         case "RS": 
-            return "RT 014.2004"
+            return configs[20]
         case "RO": 
-            return "NT 17/2021"
+            return configs[21]
         case "RR": 
-            return "NT 17/2021"
+            return configs[22]
         case "SC": 
-            return "IN 28/2021"
+            return configs[23]
         case "SP": 
-            return "IT 017/ 2019"
+            return configs[24]
         case "SE": 
-            return "IT 017/ 2019"
+            return configs[25]
         case "TO":
-            return "NT 012/2021"
+            return configs[26]
         default:
             throw new Error(`Estado "${curState}" inválido.`)
     }

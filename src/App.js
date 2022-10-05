@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Excel from "exceljs"
 import PptxGenJS from 'pptxgenjs';
-import { getCurNorma, convertDate } from './Utils/functions';
+import { getUFSpecificity, convertDate } from './Utils/functions';
 
 function App() {
 
@@ -68,7 +68,8 @@ function App() {
         bold: true,
         fontFace: 'Arial Black',
       }
-      let textBoxNorma = `cumprindo conforme o conteúdo previsto na norma ${getCurNorma(curCertificate.estado)} com carga horária de 4 horas.`
+      let configs = getUFSpecificity(curCertificate.estado)
+      let textBoxNorma = `cumprindo conforme o conteúdo previsto na norma ${configs[0]} com carga horária de ${configs[1]} horas.`
       let textBoxNormaConfig = { 
         ...baseConfig,
         y: '55%', 
