@@ -157,7 +157,7 @@ export const convertDate = (date) => {
     let placeholder = "dd/MM/yyyy"
     let localeDate = placeholder
     let day = String(date.getUTCDate())
-    let month = String(date.getUTCMonth())
+    let month = String(Number(date.getUTCMonth()) + 1)
     let year = date.getUTCFullYear()
     localeDate = localeDate.replace("dd", day.length >= 2 ? day : `0${day}`)
     localeDate = localeDate.replace("MM", month.length >= 2 ? month : `0${month}`)
